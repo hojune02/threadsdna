@@ -59,10 +59,19 @@ export async function POST() {
     return response;
   } catch (error) {
     console.error("Analysis failed", error);
+  
+    const message =
+      error instanceof Error
+        ? error.message
+        : "Unknown analysis error";
+  
     const response = NextResponse.json(
-      { error: "Analysis failed. Check your Meta permissions and server configuration, then try again." },
+      {
+        error: message,
+      },
       { status: 500 },
     );
+  
     response.cookies.delete("tdna_threads_token");
     return response;
   }
