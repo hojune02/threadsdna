@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const phases = [
   "Reading your recent posts",
@@ -39,8 +40,10 @@ export function AnalyzeClient() {
 
   return (
     <main className="analysis-shell">
-      <div className="ambient ambient-one" />
-      <div className="ambient ambient-two" />
+      <div className="analysis-theme">
+        <ThemeToggle />
+      </div>
+
       <section className="analysis-card">
         <motion.div
           className="dna-orb"

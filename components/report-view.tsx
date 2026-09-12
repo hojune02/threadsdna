@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import type { CSSProperties } from "react";
 import type { Report, ScoreKey } from "@/types/report";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const LABELS: Record<ScoreKey, string> = {
   conversation: "Conversation",
@@ -39,8 +40,17 @@ export function ReportView({ report }: { report: Report }) {
       <div className="ambient ambient-one" />
       <div className="ambient ambient-two" />
       <nav className="topbar">
-        <a className="brand" href="/">THREAD<span>DNA</span></a>
-        <a className="ghost-link" href="/">Analyze yours ↗</a>
+        <a className="brand" href="/">
+          ThreadsDNA
+        </a>
+
+        <div className="topbar-actions">
+          <a className="ghost-link" href="/">
+            Analyze yours
+          </a>
+
+          <ThemeToggle />
+        </div>
       </nav>
 
       <section className="report-grid">
@@ -73,7 +83,7 @@ export function ReportView({ report }: { report: Report }) {
               </div>
             </div>
             <div className="archetype-block">
-              <p className="eyebrow">YOUR THREADS DNA</p>
+              <p className="eyebrow">Your Threads DNA</p>
               <h1>{report.archetype}</h1>
               <p>{report.summary}</p>
             </div>
@@ -110,7 +120,7 @@ export function ReportView({ report }: { report: Report }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
           >
-            <p className="eyebrow">STRONGEST SIGNAL</p>
+            <p className="eyebrow">Strongest signal</p>
             <h2>What already works</h2>
             <p>{report.strength}</p>
           </motion.section>
@@ -121,7 +131,7 @@ export function ReportView({ report }: { report: Report }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.16 }}
           >
-            <p className="eyebrow">GROWTH EDGE</p>
+            <p className="eyebrow">Growth edge</p>
             <h2>What to sharpen</h2>
             <p>{report.weakness}</p>
           </motion.section>
@@ -132,7 +142,7 @@ export function ReportView({ report }: { report: Report }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.24 }}
           >
-            <p className="eyebrow">MEASURED SIGNALS</p>
+            <p className="eyebrow">Measured signals</p>
             <div className="signal-list">
               {report.topSignals.map((signal) => (
                 <div className="signal" key={signal}>

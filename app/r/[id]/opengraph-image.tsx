@@ -28,29 +28,131 @@ export default async function Image({ params }: { params: Promise<{ id: string }
         flexDirection: "column",
         justifyContent: "space-between",
         padding: "64px 72px",
-        background: "radial-gradient(circle at 75% 20%, #1d3d2b 0%, #0a0d0b 42%, #050605 100%)",
-        color: "#f4fff7",
-        fontFamily: "sans-serif",
+  
+        background: "#ffffff",
+        color: "#0a0a0a",
+  
+        fontFamily:
+          "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
       }}
     >
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <div style={{ fontSize: 30, letterSpacing: "0.22em", fontWeight: 700 }}>THREAD<span style={{ color: "#70ff9b" }}>DNA</span></div>
-        <div style={{ fontSize: 26, color: "#9bb2a2" }}>@{report.username}</div>
-      </div>
-
-      <div style={{ display: "flex", alignItems: "center", gap: 62 }}>
-        <div style={{ width: 230, height: 230, borderRadius: 999, border: "8px solid #70ff9b", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", boxShadow: "0 0 80px rgba(112,255,155,.18)" }}>
-          <div style={{ fontSize: 92, lineHeight: 1, fontWeight: 800 }}>{report.scores.overall}</div>
-          <div style={{ fontSize: 22, color: "#a9b9ae" }}>/ 100</div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            fontSize: 30,
+            letterSpacing: "-0.04em",
+            fontWeight: 700,
+          }}
+        >
+          ThreadDNA
         </div>
-        <div style={{ display: "flex", flexDirection: "column", maxWidth: 690 }}>
-          <div style={{ color: "#70ff9b", letterSpacing: "0.18em", fontSize: 22, marginBottom: 18 }}>YOUR THREADS DNA</div>
-          <div style={{ fontSize: 66, lineHeight: 1.02, fontWeight: 800 }}>{report.archetype}</div>
-          <div style={{ fontSize: 26, lineHeight: 1.4, color: "#bed0c3", marginTop: 22 }}>{report.summary}</div>
+  
+        <div
+          style={{
+            fontSize: 25,
+            color: "#777777",
+          }}
+        >
+          @{report.username}
         </div>
       </div>
-
-      <div style={{ display: "flex", gap: 28, color: "#b8c9bd", fontSize: 22 }}>
+  
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 62,
+        }}
+      >
+        <div
+          style={{
+            width: 220,
+            height: 220,
+            borderRadius: 999,
+            border: "7px solid #0a0a0a",
+  
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <div
+            style={{
+              fontSize: 88,
+              lineHeight: 1,
+              fontWeight: 700,
+              letterSpacing: "-0.06em",
+            }}
+          >
+            {report.scores.overall}
+          </div>
+  
+          <div
+            style={{
+              fontSize: 20,
+              color: "#777777",
+            }}
+          >
+            / 100
+          </div>
+        </div>
+  
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            maxWidth: 690,
+          }}
+        >
+          <div
+            style={{
+              color: "#777777",
+              fontSize: 21,
+              marginBottom: 15,
+            }}
+          >
+            Your Threads DNA
+          </div>
+  
+          <div
+            style={{
+              fontSize: 63,
+              lineHeight: 1.02,
+              fontWeight: 700,
+              letterSpacing: "-0.05em",
+            }}
+          >
+            {report.archetype}
+          </div>
+  
+          <div
+            style={{
+              fontSize: 25,
+              lineHeight: 1.4,
+              color: "#555555",
+              marginTop: 20,
+            }}
+          >
+            {report.summary}
+          </div>
+        </div>
+      </div>
+  
+      <div
+        style={{
+          display: "flex",
+          gap: 26,
+          color: "#777777",
+          fontSize: 21,
+        }}
+      >
         <span>Conversation {report.scores.conversation}</span>
         <span>·</span>
         <span>Originality {report.scores.originality}</span>

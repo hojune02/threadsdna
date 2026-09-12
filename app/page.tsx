@@ -1,3 +1,5 @@
+import { ThemeToggle } from "@/components/theme-toggle";
+
 const errors: Record<string, string> = {
   threads_not_configured: "Threads OAuth is not configured yet. Add your Meta app credentials first.",
   oauth_state_mismatch: "That sign-in session expired. Please try connecting Threads again.",
@@ -20,13 +22,24 @@ export default async function Home({
       <div className="ambient ambient-two" />
 
       <nav className="topbar landing-nav">
-        <a className="brand" href="/">THREAD<span>DNA</span></a>
-        <span className="nav-tag">V0 · READ-ONLY ANALYSIS</span>
+        <a className="brand" href="/">
+          ThreadsDNA
+        </a>
+
+        <div className="topbar-actions">
+          <span className="nav-tag">
+            Read-only analysis
+          </span>
+
+          <ThemeToggle />
+        </div>
       </nav>
 
       <section className="landing-hero">
         <div className="hero-copy">
-          <p className="eyebrow">YOUR POSTS LEAVE A FINGERPRINT</p>
+          <p className="eyebrow">
+            Your posts leave a fingerprint
+          </p>
           <h1>
             See what your <span>Threads</span> account is made of.
           </h1>
@@ -64,7 +77,9 @@ export default async function Home({
                 <small>/ 100</small>
               </div>
               <div>
-                <p className="eyebrow">CREATOR ARCHETYPE</p>
+                <p className="eyebrow">
+                  Creator archetype
+                </p>
                 <h2>THE BUILDER</h2>
                 <p className="preview-copy">Practical signal. Strong process. High conversation potential.</p>
               </div>
