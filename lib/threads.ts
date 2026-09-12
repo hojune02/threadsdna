@@ -17,21 +17,47 @@ const POST_FIELDS = [
   "has_replies",
 ].join(",");
 
-async function threadsFetch<T>(path: string, accessToken: string): Promise<T> {
+async function threadsFetch<T>(
+  path: string,
+  accessToken: string,
+): Promise<T> {
   const url = new URL(`${API}${path}`);
   url.searchParams.set("access_token", accessToken);
 
-  const response = await fetch(url, {
-    headers: { Accept: "application/json" },
-    cache: "no-store",
-  });
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    const response = await fetch(url, {
+      headers: {
+        Accept: "application/json",
+      },
+      cache: "no-store",
+    });
 
-  if (!response.ok) {
+    if (response.ok) {
+      return (await response.json()) as T;
+    }
+
     const body = await response.text();
-    throw new Error(`Threads API ${response.status}: ${body.slice(0, 500)}`);
+
+    console.error(
+      `[Threads API] ${url.pathname} attempt ${attempt}:`,
+      response.status,
+      body,
+    );
+
+    // Retry Meta internal errors only.
+    if (response.status >= 500 && attempt < 3) {
+      await new Promise((resolve) =>
+        setTimeout(resolve, 500 * attempt),
+      );
+      continue;
+    }
+
+    throw new Error(
+      `Threads API ${response.status} at ${url.pathname}: ${body.slice(0, 500)}`,
+    );
   }
 
-  return (await response.json()) as T;
+  throw new Error("Threads API request failed.");
 }
 
 export async function getThreadsProfile(accessToken: string) {
