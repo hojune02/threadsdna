@@ -49,7 +49,7 @@ export function AnalyzeClient() {
         >
           <div className="dna-orb-inner" />
         </motion.div>
-        <p className="eyebrow">THREADDNA / LIVE ANALYSIS</p>
+        <p className="eyebrow">THREADSDNA / LIVE ANALYSIS</p>
         <h1>{error ? "Analysis interrupted" : "Reading your signal."}</h1>
         {error ? (
           <>

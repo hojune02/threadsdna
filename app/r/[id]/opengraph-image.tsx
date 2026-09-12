@@ -13,7 +13,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
   if (!report) {
     return new ImageResponse(
       <div style={{ width: "100%", height: "100%", background: "#090b0a", color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 72 }}>
-        THREADDNA
+        THREADSDNA
       </div>,
       size,
     );

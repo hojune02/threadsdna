@@ -55,7 +55,7 @@ export default async function Home({
         <div className="preview-wrap" aria-hidden="true">
           <div className="preview-card glass">
             <div className="preview-top">
-              <span>THREADDNA / SAMPLE</span>
+              <span>THREADSDNA / SAMPLE</span>
               <span>@you</span>
             </div>
             <div className="preview-center">
