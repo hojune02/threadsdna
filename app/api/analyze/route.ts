@@ -20,17 +20,22 @@ export async function POST() {
   }
 
   try {
-    const [profile, posts] = await Promise.all([
-      getThreadsProfile(accessToken),
-      getThreadsPosts(accessToken, 24),
-    ]);
-
+    console.log("Fetching Threads profile...");
+    const profile = await getThreadsProfile(accessToken);
+    console.log("Threads profile OK:", profile.username);
+  
+    console.log("Fetching Threads posts...");
+    const posts = await getThreadsPosts(accessToken, 24);
+    console.log("Threads posts OK:", posts.length);
+  
     if (!posts.length) {
       return NextResponse.json(
         { error: "We couldn't find any Threads posts to analyze." },
         { status: 422 },
       );
     }
+  
+    // rest of existing code...
 
     const enriched = await enrichPostsWithInsights(posts, accessToken);
     const { scores, signals, stats } = scorePosts(enriched);

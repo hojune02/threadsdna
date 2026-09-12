@@ -6,7 +6,7 @@ import type {
   ThreadsProfile,
 } from "@/types/report";
 
-const API = "https://graph.threads.net";
+const API = "https://graph.threads.net/v1.0";
 const POST_FIELDS = [
   "id",
   "text",
@@ -36,17 +36,19 @@ async function threadsFetch<T>(path: string, accessToken: string): Promise<T> {
 
 export async function getThreadsProfile(accessToken: string) {
   return threadsFetch<ThreadsProfile>(
-    "/me?fields=id,username,name,threads_profile_picture_url,threads_biography",
+    "/me?fields=id,username",
     accessToken,
   );
 }
 
 export async function getThreadsPosts(accessToken: string, limit = 24) {
   const safeLimit = Math.min(Math.max(limit, 1), 50);
+
   const result = await threadsFetch<{ data: ThreadsPost[] }>(
-    `/me/threads?fields=${encodeURIComponent(POST_FIELDS)}&limit=${safeLimit}`,
+    `/me/threads?fields=id,text,timestamp&limit=${safeLimit}`,
     accessToken,
   );
+
   return result.data ?? [];
 }
 

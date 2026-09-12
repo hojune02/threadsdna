@@ -6,13 +6,13 @@ const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(appUrl),
   title: {
-    default: "ThreadDNA — See what your Threads account is made of",
-    template: "%s · ThreadDNA",
+    default: "ThreadsDNA — See what your Threads account is made of",
+    template: "%s · ThreadsDNA",
   },
   description:
     "Connect Threads and get a shareable creator DNA report across conversation, originality, authority, consistency, and virality.",
   openGraph: {
-    title: "ThreadDNA",
+    title: "ThreadsDNA",
     description: "See what your Threads account is made of.",
     type: "website",
   },

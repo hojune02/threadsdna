@@ -1,4 +1,4 @@
-# ThreadDNA V0
+# ThreadsDNA V0
 
 A deployable V0 for a viral Threads creator analyzer.
 
@@ -105,7 +105,7 @@ GEMINI_MODEL=gemini-2.5-flash-lite
 
 If you omit the API key, exceed quota, or Gemini returns an invalid response, the app still works using deterministic fallback copy. The numerical score itself never comes from the LLM.
 
-The app uses Gemini's stateless `generateContent` endpoint with structured JSON output. ThreadDNA itself does not persist the raw post history. **Privacy note:** Google's current Gemini Developer API pricing documentation states that free-tier content may be used to improve Google's products, so do not describe the free-tier AI processing as zero-retention/private processing in your public policy.
+The app uses Gemini's stateless `generateContent` endpoint with structured JSON output. ThreadsDNA itself does not persist the raw post history. **Privacy note:** Google's current Gemini Developer API pricing documentation states that free-tier content may be used to improve Google's products, so do not describe the free-tier AI processing as zero-retention/private processing in your public policy.
 
 ## 4. Create the Meta Threads app
 
@@ -180,14 +180,14 @@ From this directory:
 ```bash
 git init
 git add .
-git commit -m "feat: build ThreadDNA V0"
+git commit -m "feat: build ThreadsDNA V0"
 git branch -M main
 ```
 
 Create an empty GitHub repository, then:
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/threaddna-v0.git
+git remote add origin https://github.com/YOUR_USERNAME/threadsdna-v0.git
 git push -u origin main
 ```
 

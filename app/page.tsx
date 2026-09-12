@@ -92,7 +92,7 @@ export default async function Home({
 
       <footer className="landing-footer">
         <p>Independent prototype. Not affiliated with Meta or Threads.</p>
-        <p>ThreadDNA does not persist raw post history or access tokens. Narrative processing uses Google Gemini.</p>
+        <p>ThreadsDNA does not persist raw post history or access tokens. Narrative processing uses Google Gemini.</p>
       </footer>
     </main>
   );
